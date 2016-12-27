@@ -2,7 +2,9 @@
 // Created by ctis-szx on 2016/12/25.
 //
 #include <iostream>
+#include <vector>
 //#include <afxres.h>
+using namespace std;
 
 
 struct Node {
@@ -63,7 +65,7 @@ int printNodeAtLevel(Node * root, int level){
 }
 
 /**
-*  按层次遍历二叉树
+*  按层次遍历二叉树 方法1
 **/
 void printTreeByLevel(Node* root){
 
@@ -72,6 +74,35 @@ void printTreeByLevel(Node* root){
 			break;
 		}
 		std::cout<<std::endl;
+	}
+}
+
+/**
+** 按层次遍历二叉树最优方法
+**/
+void printNodeByLevel(Node* root){
+	if(root == NULL){
+		return;
+	}
+	vector<Node*> vec;
+	vec.push_back(root);
+	int cur = 0;
+	int last = 1;
+	while(cur < vec.size()) 
+	{
+		last = vec.size();
+
+		while(cur < last)
+		{
+			std::cout<<vec[cur] -> value << " ";
+
+			if(vec[cur] -> pLeft)
+				vec.push_back(vec[cur] -> pLeft);
+			if(vec[cur] -> pRight)
+				vec.push_back(vec[cur] -> pRight);
+			cur++;
+		}
+		std::cout<<endl;
 	}
 }
 
@@ -86,7 +117,8 @@ void printTreeByLevel(Node* root){
 			printNodeAtLevel(root, i);   //打印树
 			std::cout << std::endl;
 		}*/
-		printTreeByLevel(root);
+		//printTreeByLevel(root);
+		printNodeByLevel(root);
 		
 	}
 
