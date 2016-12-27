@@ -106,7 +106,7 @@ void printNodeByLevel(Node* root){
 	}
 }
 
-	int main(int argc, char* argv){
+	int main2(int argc, char* argv){
 		char pre[6] = {'a','b','d','c','e','f'};
 		char in[6] = {'d','b','a','e','c','f'};
 		char pre2[7] ={'a','d','b','c','e','g','h'};
@@ -119,6 +119,6 @@ void printNodeByLevel(Node* root){
 		}*/
 		//printTreeByLevel(root);
 		printNodeByLevel(root);
-		
+		return 9;
 	}
 

@@ -166,7 +166,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\printTreeByLevel.cpp"
+				RelativePath=".\getMaxDistanceInTree.cpp"
 				>
 			</File>
 		</Filter>
