@@ -56,10 +56,23 @@ int printNodeAtLevel(Node * root, int level){
     }
     if(level == 0){
 		std::cout << root -> value <<" ";
+		return 1;
     }
-    printNodeAtLevel(root -> pLeft, level - 1);
-    printNodeAtLevel(root -> pRight, level - 1);
-    return 1;
+    
+    return printNodeAtLevel(root -> pLeft, level - 1) + printNodeAtLevel(root -> pRight, level - 1);
+}
+
+/**
+*  按层次遍历二叉树
+**/
+void printTreeByLevel(Node* root){
+
+	for(int level = 0; ; level++){
+		if(!printNodeAtLevel(root, level)){
+			break;
+		}
+		std::cout<<std::endl;
+	}
 }
 
 	int main(int argc, char* argv){
@@ -69,10 +82,11 @@ int printNodeAtLevel(Node * root, int level){
 		char inOrder2[7] ={'b','d','c','a','g','e','h'};
 		Node* root = NULL;
 		reBuildTree(pre2,inOrder2,7,&root); //构建树
-		for(int i = 0; i < 3; i++){
+		/*for(int i = 0; i < 3; i++){
 			printNodeAtLevel(root, i);   //打印树
 			std::cout << std::endl;
-		}
+		}*/
+		printTreeByLevel(root);
 		
 	}
 
